@@ -1,8 +1,8 @@
 "use client";
 import React, { createContext, useContext, useState } from 'react';
-import { MarketController } from './controllers/MarketController';
-import { TimeSeriesController } from './controllers/TimeSeriesController';
-import { AnalyticsController } from './controllers/AnalyticsController';
+import { MarketController } from '../controllers/MarketController';
+import { TimeSeriesController } from '../controllers/TimeSeriesController';
+import { AnalyticsController } from '../controllers/AnalyticsController';
 
 interface MarketContextType {
   marketData: any;

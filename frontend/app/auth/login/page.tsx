@@ -1,4 +1,4 @@
-import AuthComponent from '@/components/ui/AuthComponent'
+import AuthComponent from '@/components/ui/Authentication/AuthComponent'
 import React from 'react'
 
 type LoginProps = {}

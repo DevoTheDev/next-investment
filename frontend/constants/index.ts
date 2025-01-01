@@ -1,4 +1,5 @@
 import { MarketStatusResponse } from "@/components/contexts/types/alphaVantage-types";
+import { Config } from "./types";
 
   export interface Stock {
     company: string,
@@ -7,6 +8,7 @@ import { MarketStatusResponse } from "@/components/contexts/types/alphaVantage-t
     stockPrice: string,
     [key: string]: any,
   }
+
   export const top30_default: Stock[] = [
     { company: 'Apple Inc.', ticker: 'AAPL', marketCap: '2.65T', stockPrice: '$170.55' },
     { company: 'Microsoft Corp.', ticker: 'MSFT', marketCap: '2.50T', stockPrice: '$340.12' },
@@ -2567,6 +2569,15 @@ export const default_NewsSentiments = {
   "relevance_score_definition": "0 < x <= 1, with a higher score indicating higher relevance.",
   "sentiment_score_definition": "x <= -0.35: Bearish; -0.35 < x <= -0.15: Somewhat-Bearish; -0.15 < x < 0.15: Neutral; 0.15 <= x < 0.35: Somewhat_Bullish; x >= 0.35: Bullish"
 }
+
+export const defaultMarketImages = [
+    'https://images.unsplash.com/photo-1559526324-593bc073d938?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400',
+  'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400',
+  'https://images.unsplash.com/photo-1507679799987-c73779587ccf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400',
+  'https://images.unsplash.com/photo-1525253086316-d0c936c814f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
+];
+export const getDefaultImage = () =>
+defaultMarketImages[Math.floor(Math.random() * defaultMarketImages.length)];
 
 export const Devon_default = {
     name: "Devon Fennell",

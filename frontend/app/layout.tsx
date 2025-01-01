@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { InvestorProvider } from '@/components/contexts/InvestorContext';
 import { AuthProvider } from '@/components/contexts/AuthContext';
 import { MarketProvider } from "@/components/contexts/MarketContext";
 import { SelectionProvider } from "@/components/contexts/SelectionContext";
+import { ExperimentProvider } from "@/components/contexts/ExperimentContext";
+import { UserProvider } from "@/components/contexts/UserContext";
 
 export const metadata: Metadata = {
   title: "Next Investment",
@@ -20,15 +21,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <SelectionProvider>
-        <AuthProvider>
+      <ExperimentProvider>
+        <SelectionProvider>
           <MarketProvider>
-            <InvestorProvider>
-              <body className="h-lvh bg-gray-900">{children}</body>
-            </InvestorProvider>
+            <UserProvider>
+              <AuthProvider>
+                <body className="h-lvh bg-gray-900">{children}</body>
+              </AuthProvider>
+            </UserProvider>
           </MarketProvider>
-        </AuthProvider>
-      </SelectionProvider>
+        </SelectionProvider>
+      </ExperimentProvider>
     </html>
   );
 }

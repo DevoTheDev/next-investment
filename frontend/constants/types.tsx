@@ -1,27 +1,24 @@
 export type Detail = {
     [key: string]: any;
+};
+
+export type Visibility = {
+  visible?: boolean;
+};
+
+export type Config<T> = Visibility & {
+  container?: React.HTMLAttributes<HTMLDivElement>;
+  keyValueContainer?: React.HTMLAttributes<HTMLDivElement>;
+  keyRef?: React.HTMLAttributes<HTMLDivElement>;
+  value?: React.HTMLAttributes<HTMLDivElement>;
+};
+
+export type MappedDetails<T extends object, Seperator extends string, ConfigType> = {
+  [K in keyof T as `${Seperator}${string & K}`]?: ConfigType;
 }
 
-// Interfaces for styling and interaction
-export interface Stylable {
-    style?: React.CSSProperties;
-    tailwindClass?: string;
-  }
-  
-  export interface Interactable {
-    onTouchStart?: (props?: any) => any;
-    onTouchEnd?: (props?: any) => any;
-    onClick?: (props?: any) => any;
-  }
-  
-  export interface BasicConfig {
-    container?: Stylable & Interactable;
-    keyValueContainer?: Stylable & Interactable;
-    keyRef?: Stylable & Interactable;
-    value?: Stylable & Interactable;
-  }
 
-export type MappedDetails<T extends object, Prefix extends string, ConfigType> = {
-    [K in keyof T as `${Prefix}${Capitalize<string & K>}`]?: ConfigType;
-};
+
+
+
 

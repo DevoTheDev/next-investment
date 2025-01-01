@@ -2,8 +2,6 @@
 import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { ActiveUser } from '@/app/(root)/home/page';
-import { useInvestorContext } from '../contexts/InvestorContext';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -13,7 +11,6 @@ interface ChartProps {
 
 const DoughnutChart = ({ accounts }: any) => {
 
-    const {  } = useInvestorContext();
 
     const data = {
         // TODO: Wire up the percentage of the User's total cash to the respective stocks

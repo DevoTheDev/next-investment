@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Navigation from '@/components/ui/Navigation';
 import MobileNav from '@/components/ui/MobileNav';
-import AppHeader from '@/components/ui/AppHeader';
+import AppHeader from '@/components/ui/AppHeader/AppHeader';
 
 type Props = {
   children: React.ReactNode
