@@ -1,8 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
-from blueprints.investments_bp import investments_bp
-from blueprints.auth_bp import auth_bp
+from blueprints.user_bp import user_bp
+from blueprints.investor_bp import investor_bp
 from json import JSONEncoder
 from bson import ObjectId
 from custom_logging.custom_log import custom_log
@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # CORS configuration
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}, supports_credentials=True)
-port = 5005
+port = 7007
 load_dotenv()
 
 @app.route('/test', methods=['GET'])
@@ -23,9 +23,9 @@ def test_connection():
         return {"status": "success", "collections": collection_names}, 200
     except Exception as e:
         return {"status": "fail", "message": str(e)}, 500
-
-app.register_blueprint(investments_bp, url_prefix='/investments')
-app.register_blueprint(auth_bp, url_prefix='/auth')
+    
+app.register_blueprint(user_bp, url_prefix='/user')
+app.register_blueprint(investor_bp, url_prefix='/investor')
 
 class CustomJSONEncoder(JSONEncoder):
     def default(self, obj):
